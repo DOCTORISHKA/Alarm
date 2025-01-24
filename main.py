@@ -3,8 +3,6 @@ from mss import mss
 import pyaudio
 import wave
 import keyboard
-from tkinter import *
-import tkinter as tk
 
 
 audio_file = wave.open("sample.wav")
@@ -27,6 +25,8 @@ while(True):
             print(timer)
             if(keyboard.is_pressed('pause')):
                 timer = 0.0
+                break
+            elif(keyboard.is_pressed('end')):
                 break
             if timer == 60.0:
                 out_stream = audio.open(format=FORMAT, channels=CHANNELS,
